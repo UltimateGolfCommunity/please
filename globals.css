@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 15, 10;
+  --background-end-rgb: 20, 35, 20;
+  --grass-primary: 76, 175, 80;
+  --grass-secondary: 61, 139, 64;
+  --sky-primary: 14, 165, 233;
+  --sky-secondary: 2, 132, 199;
+  --sunset-primary: 249, 115, 22;
+  --sunset-secondary: 234, 88, 12;
+  --forest-primary: 79, 135, 79;
+  --forest-secondary: 63, 107, 63;
+  --sand-primary: 232, 220, 199;
+  --sand-secondary: 212, 196, 168;
+  --ocean-primary: 14, 165, 233;
+  --ocean-secondary: 2, 132, 199;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    );
+}
+
+/* Golf-themed gradient backgrounds */
+.golf-gradient {
+  background: linear-gradient(135deg, 
+    rgb(var(--grass-primary)) 0%, 
+    rgb(var(--forest-primary)) 25%, 
+    rgb(var(--sky-primary)) 50%, 
+    rgb(var(--ocean-primary)) 75%, 
+    rgb(var(--sunset-primary)) 100%);
+}
+
+.grass-gradient {
+  background: linear-gradient(135deg, 
+    rgb(var(--grass-primary)) 0%, 
+    rgb(var(--forest-primary)) 50%, 
+    rgb(var(--grass-secondary)) 100%);
+}
+
+.sky-gradient {
+  background: linear-gradient(135deg, 
+    rgb(var(--sky-primary)) 0%, 
+    rgb(var(--ocean-primary)) 50%, 
+    rgb(var(--sky-secondary)) 100%);
+}
+
+.sunset-gradient {
+  background: linear-gradient(135deg, 
+    rgb(var(--sunset-primary)) 0%, 
+    rgb(var(--sunset-secondary)) 50%, 
+    rgb(var(--grass-primary)) 100%);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+  
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
+  
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-bounce {
+    animation: bounce 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .5;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+}
